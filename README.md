@@ -1,5 +1,5 @@
 # Soulslike Platformer Project
-A soulslike platformer within the Godot Game Engine
+A soulslike platformer made using the Godot Game Engine.
 
 Using assets from the following creators:
  https://szadiart.itch.io/, 
