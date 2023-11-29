@@ -1,0 +1,79 @@
+[gd_scene load_steps=10 format=3 uid="uid://81puj720vdes"]
+
+[ext_resource type="Script" path="res://Source/Actors/Enemies/Enemy Resources/boss_shockwave_left.gd" id="1_om5i3"]
+[ext_resource type="Texture2D" uid="uid://bg4d6fr5wyukt" path="res://Assets/Effects Assets/Effects Sheets/Red Effect Bullet Impact Explosion 32x32.png" id="2_m40o5"]
+[ext_resource type="PackedScene" uid="uid://cyavki3bjyjgv" path="res://Source/Actor Resources/Hitboxes and Hurtboxes/hitbox.tscn" id="3_28vu5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ry5w1"]
+size = Vector2(0, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_01txf"]
+atlas = ExtResource("2_m40o5")
+region = Rect2(128, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mui11"]
+atlas = ExtResource("2_m40o5")
+region = Rect2(96, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ovxtd"]
+atlas = ExtResource("2_m40o5")
+region = Rect2(64, 224, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fr24d"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_01txf")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_mui11")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_ovxtd")
+}],
+"loop": false,
+"name": &"Shockwave",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_grnvs"]
+radius = 11.67
+height = 65.67
+
+[node name="BossShockwaveLeft" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_om5i3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ry5w1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -36)
+scale = Vector2(2.25, 2.25)
+sprite_frames = SubResource("SpriteFrames_fr24d")
+animation = &"Shockwave"
+autoplay = "Shockwave"
+frame = 2
+frame_progress = 1.0
+flip_h = true
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-8.9407e-08, -10)
+scale = Vector2(0.9, 1)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="Hitbox" parent="Marker2D" instance=ExtResource("3_28vu5")]
+collision_layer = 64
+collision_mask = 0
+damage = 25.0
+
+[node name="CollisionShape2D" parent="Marker2D/Hitbox" index="0"]
+position = Vector2(5, -28)
+rotation = 0.286234
+shape = SubResource("CapsuleShape2D_grnvs")
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+
+[editable path="Marker2D/Hitbox"]

@@ -1,0 +1,57 @@
+[gd_scene load_steps=11 format=3 uid="uid://nhu0y8b2ceqb"]
+
+[ext_resource type="Texture2D" uid="uid://b1wvniwyh0h7x" path="res://Assets/Effects Assets/Dust Assets/PlayerLandEffect/FX052_01.png" id="1_8b00k"]
+[ext_resource type="Script" path="res://Source/Effects/dust_landing_effect.gd" id="1_j3xrb"]
+[ext_resource type="Texture2D" uid="uid://bwfapnnyukqxt" path="res://Assets/Effects Assets/Dust Assets/PlayerLandEffect/FX052_02.png" id="2_kflob"]
+[ext_resource type="Texture2D" uid="uid://ck25juy13rh0u" path="res://Assets/Effects Assets/Dust Assets/PlayerLandEffect/FX052_03.png" id="3_frbp4"]
+[ext_resource type="Texture2D" uid="uid://bnwdix0ddliu0" path="res://Assets/Effects Assets/Dust Assets/PlayerLandEffect/FX052_04.png" id="4_gb5j4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3y3nl"]
+atlas = ExtResource("1_8b00k")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ecjmx"]
+atlas = ExtResource("2_kflob")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fl83l"]
+atlas = ExtResource("3_frbp4")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_26smg"]
+atlas = ExtResource("4_gb5j4")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x1btc"]
+animations = [{
+"frames": [{
+"duration": 0.25,
+"texture": SubResource("AtlasTexture_3y3nl")
+}, {
+"duration": 0.25,
+"texture": SubResource("AtlasTexture_ecjmx")
+}, {
+"duration": 0.25,
+"texture": SubResource("AtlasTexture_fl83l")
+}, {
+"duration": 0.25,
+"texture": SubResource("AtlasTexture_26smg")
+}],
+"loop": false,
+"name": &"Effect",
+"speed": 5.0
+}]
+
+[node name="DustLandingEffect" type="Node2D"]
+script = ExtResource("1_j3xrb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 11
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_x1btc")
+animation = &"Effect"
+autoplay = "Effect"
+frame = 3
+frame_progress = 1.0
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://43lnk5cqrp6s"]
+
+[ext_resource type="Script" path="res://Source/World/World Resources/platform.gd" id="1_h2nfq"]
+[ext_resource type="Texture2D" uid="uid://d1qyefgd6kmuv" path="res://Assets/World Creation Assets/Tilesets/GrassTileset.png" id="1_yryky"]
+[ext_resource type="PackedScene" uid="uid://behanqrisr7aq" path="res://Source/Actor Resources/Actor Detection/actor_detection_zone.tscn" id="2_xnr3w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wxve2"]
+size = Vector2(47, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xsyc4"]
+size = Vector2(47, 2)
+
+[node name="Platform" type="StaticBody2D"]
+collision_mask = 2
+script = ExtResource("1_h2nfq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_yryky")
+region_enabled = true
+region_rect = Rect2(144, 253, 47, 18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_wxve2")
+one_way_collision = true
+
+[node name="ActorDetectionZone" parent="." instance=ExtResource("2_xnr3w")]
+position = Vector2(0, -2)
+collision_layer = 1024
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="ActorDetectionZone" index="0"]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_xsyc4")
+
+[connection signal="body_entered" from="ActorDetectionZone" to="." method="_on_actor_detection_zone_body_entered"]
+[connection signal="body_exited" from="ActorDetectionZone" to="." method="_on_actor_detection_zone_body_exited"]
+
+[editable path="ActorDetectionZone"]

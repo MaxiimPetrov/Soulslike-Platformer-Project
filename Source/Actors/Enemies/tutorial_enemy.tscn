@@ -1,0 +1,72 @@
+[gd_scene load_steps=10 format=3 uid="uid://c42ena32su63r"]
+
+[ext_resource type="Script" path="res://Source/Actors/Enemies/tutorial_enemy.gd" id="1_effkf"]
+[ext_resource type="Texture2D" uid="uid://dhfu0deb34gx8" path="res://Assets/Enemy Assets/Skeleton/Idle.png" id="2_rma2r"]
+[ext_resource type="PackedScene" uid="uid://c4rfywn5u7hkk" path="res://Source/Actors/Actor Resources/Hitboxes and Hurtboxes/hurtbox.tscn" id="3_exy3w"]
+[ext_resource type="PackedScene" uid="uid://cyavki3bjyjgv" path="res://Source/Actors/Actor Resources/Hitboxes and Hurtboxes/hitbox.tscn" id="4_ds3av"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8edi0"]
+atlas = ExtResource("2_rma2r")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sbfo7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8edi0")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h6uci"]
+size = Vector2(24, 52)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f4j5s"]
+size = Vector2(38, 52)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o8ppf"]
+size = Vector2(38, 52)
+
+[node name="TutorialEnemy" type="CharacterBody2D"]
+collision_layer = 0
+script = ExtResource("1_effkf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 5
+position = Vector2(-4, -26)
+sprite_frames = SubResource("SpriteFrames_sbfo7")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -26)
+shape = SubResource("RectangleShape2D_h6uci")
+
+[node name="Hurtbox" parent="." instance=ExtResource("3_exy3w")]
+visible = false
+collision_layer = 32
+collision_mask = 8
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2(0, -26)
+shape = SubResource("RectangleShape2D_f4j5s")
+
+[node name="Hitbox" parent="." instance=ExtResource("4_ds3av")]
+visible = false
+collision_layer = 64
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2(0, -26)
+shape = SubResource("RectangleShape2D_o8ppf")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.15
+one_shot = true
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+
+[editable path="Hurtbox"]
+[editable path="Hitbox"]

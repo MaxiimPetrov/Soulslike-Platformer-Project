@@ -1,0 +1,583 @@
+[gd_scene load_steps=45 format=3 uid="uid://drwll2xfgfgfy"]
+
+[ext_resource type="Script" path="res://Source/UI and Screens/user_interface.gd" id="1_w8y5x"]
+[ext_resource type="Texture2D" uid="uid://d0x5t5rguvfq" path="res://Assets/UI Assets/H_M_S Bars/HealthBar_cropped.png" id="2_nu3di"]
+[ext_resource type="Texture2D" uid="uid://c41i7ngssy6v8" path="res://Assets/UI Assets/H_M_S Bars/HealthBarCROPPED.png" id="3_qs6ek"]
+[ext_resource type="Texture2D" uid="uid://cbpxlwe5j5shh" path="res://Assets/UI Assets/H_M_S Bars/StaminaBarCropped.png" id="4_p7ih6"]
+[ext_resource type="Texture2D" uid="uid://cv8yxmdm1je0f" path="res://Assets/UI Assets/H_M_S Bars/mana_bar_cropped.png" id="5_xrjwg"]
+[ext_resource type="Texture2D" uid="uid://skmnt5fqygcm" path="res://Assets/UI Assets/H_M_S Bars/GUI.png" id="6_ly6af"]
+[ext_resource type="Texture2D" uid="uid://csn0d8jbeihet" path="res://Assets/UI Assets/Potions/Red Potions/empty.png" id="7_qofuq"]
+[ext_resource type="Texture2D" uid="uid://6y2hry85b6te" path="res://Assets/UI Assets/Potions/Red Potions/poç¦o vermelha.png" id="7_u6t7s"]
+[ext_resource type="Texture2D" uid="uid://4l6qi8xtefue" path="res://Assets/UI Assets/Potions/Red Potions/poç¦o vermelha bem vazia.png" id="7_xdp8y"]
+[ext_resource type="Texture2D" uid="uid://d1ftvh2l0ol7q" path="res://Assets/UI Assets/Potions/Red Potions/poç¦o vermelha meio vazia.png" id="8_c2bju"]
+[ext_resource type="Texture2D" uid="uid://wd3ptd7mxcov" path="res://Assets/Effects Assets/Effects Sheets/Blue Effect Bullet Impact Explosion 32x32.png" id="11_nxmtu"]
+[ext_resource type="Texture2D" uid="uid://cavj8ktesbtw0" path="res://Assets/Effects Assets/Effects Sheets/Pixel Explotion 32x32.png" id="12_1du37"]
+[ext_resource type="Texture2D" uid="uid://d1qsdtnr27thv" path="res://Assets/Effects Assets/Other Effects Assets/Fireball/Traveling/FB002.png" id="13_m6rky"]
+[ext_resource type="Texture2D" uid="uid://h6b0n2blxi88" path="res://Assets/UI Assets/Screens/download/coin bag.png" id="14_akusb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ddwl4"]
+atlas = ExtResource("7_qofuq")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ec0fe"]
+atlas = ExtResource("7_xdp8y")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svsbs"]
+atlas = ExtResource("7_xdp8y")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_syttb"]
+atlas = ExtResource("7_xdp8y")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qrxax"]
+atlas = ExtResource("7_xdp8y")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kfl6l"]
+atlas = ExtResource("7_xdp8y")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8urfo"]
+atlas = ExtResource("7_xdp8y")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2howr"]
+atlas = ExtResource("7_xdp8y")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_noptv"]
+atlas = ExtResource("7_xdp8y")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_telq6"]
+atlas = ExtResource("7_u6t7s")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1unr"]
+atlas = ExtResource("7_u6t7s")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qejpp"]
+atlas = ExtResource("7_u6t7s")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52jn0"]
+atlas = ExtResource("7_u6t7s")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8fpt"]
+atlas = ExtResource("7_u6t7s")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ei4uv"]
+atlas = ExtResource("7_u6t7s")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_unv50"]
+atlas = ExtResource("7_u6t7s")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7qf4b"]
+atlas = ExtResource("7_u6t7s")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jw2t7"]
+atlas = ExtResource("8_c2bju")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_klhp6"]
+atlas = ExtResource("8_c2bju")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vhgfb"]
+atlas = ExtResource("8_c2bju")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3eja8"]
+atlas = ExtResource("8_c2bju")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rnbkp"]
+atlas = ExtResource("8_c2bju")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iaxso"]
+atlas = ExtResource("8_c2bju")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_471yc"]
+atlas = ExtResource("8_c2bju")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ecgkj"]
+atlas = ExtResource("8_c2bju")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lhmhr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ddwl4")
+}],
+"loop": false,
+"name": &"Empty",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ec0fe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svsbs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_syttb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qrxax")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kfl6l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8urfo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2howr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_noptv")
+}],
+"loop": true,
+"name": &"PotionAlmostEmpty",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_telq6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a1unr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qejpp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52jn0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j8fpt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ei4uv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_unv50")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7qf4b")
+}],
+"loop": true,
+"name": &"PotionFull",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jw2t7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_klhp6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vhgfb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3eja8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rnbkp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iaxso")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_471yc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ecgkj")
+}],
+"loop": true,
+"name": &"PotionHalfFull",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cuyen"]
+atlas = ExtResource("14_akusb")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52yib"]
+atlas = ExtResource("14_akusb")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxhkm"]
+atlas = ExtResource("14_akusb")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_70l4c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cuyen")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52yib")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gxhkm")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="UserInterface" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w8y5x")
+
+[node name="HealthBar" type="Node" parent="."]
+
+[node name="HealthBarIconColorBG" type="ColorRect" parent="HealthBar"]
+z_index = -2
+offset_left = 7.0001
+offset_top = 7.0
+offset_right = 29.0001
+offset_bottom = 30.0
+color = Color(0.321569, 0, 0, 1)
+
+[node name="HealthBar" type="Sprite2D" parent="HealthBar"]
+position = Vector2(63.0001, 19)
+scale = Vector2(1.57895, 1.6)
+texture = ExtResource("2_nu3di")
+region_enabled = true
+region_rect = Rect2(9, 93, 76, 20)
+
+[node name="HealthBarFull" type="TextureRect" parent="HealthBar"]
+offset_left = 33.0001
+offset_top = 16.0
+offset_right = 121.45
+offset_bottom = 22.0
+texture = ExtResource("3_qs6ek")
+expand_mode = 1
+
+[node name="HealthBarEmpty" type="TextureRect" parent="HealthBar"]
+self_modulate = Color(0.392157, 0.392157, 0.392157, 1)
+z_index = -1
+offset_left = 33.0001
+offset_top = 15.0
+offset_right = 121.45
+offset_bottom = 23.0
+texture = ExtResource("3_qs6ek")
+expand_mode = 1
+
+[node name="StaminaBar" type="Node" parent="."]
+
+[node name="StaminaBar" type="Sprite2D" parent="StaminaBar"]
+z_index = -3
+position = Vector2(62.6801, 29.37)
+scale = Vector2(1.37368, 1.60714)
+texture = ExtResource("2_nu3di")
+region_enabled = true
+region_rect = Rect2(28, 100, 57, 7)
+
+[node name="StaminaBarFull" type="TextureRect" parent="StaminaBar"]
+z_index = -1
+offset_left = 28.0001
+offset_top = 25.0
+offset_right = 100.4
+offset_bottom = 31.8
+texture = ExtResource("4_p7ih6")
+expand_mode = 1
+
+[node name="StaminaBarEmpty" type="TextureRect" parent="StaminaBar"]
+self_modulate = Color(0.392157, 0.392157, 0.392157, 1)
+z_index = -2
+offset_left = 28.0001
+offset_top = 25.0
+offset_right = 100.4
+offset_bottom = 31.8
+texture = ExtResource("4_p7ih6")
+expand_mode = 1
+
+[node name="ManaBar" type="Node" parent="."]
+
+[node name="ManaBar" type="Sprite2D" parent="ManaBar"]
+z_index = -3
+position = Vector2(62.7001, 10.625)
+scale = Vector2(1.37368, 1.60714)
+texture = ExtResource("2_nu3di")
+region_enabled = true
+region_rect = Rect2(28, 100, 57, 7)
+
+[node name="ManaBarFull" type="TextureRect" parent="ManaBar"]
+z_index = -1
+offset_left = 28.0001
+offset_top = 6.0
+offset_right = 100.5
+offset_bottom = 13.1
+texture = ExtResource("5_xrjwg")
+expand_mode = 1
+
+[node name="ManaBarEmpty" type="TextureRect" parent="ManaBar"]
+self_modulate = Color(0.392157, 0.392157, 0.392157, 1)
+z_index = -2
+offset_left = 28.2001
+offset_top = 6.0
+offset_right = 100.7
+offset_bottom = 13.0
+texture = ExtResource("5_xrjwg")
+expand_mode = 1
+
+[node name="Potions" type="Node" parent="."]
+
+[node name="PotionUI1" type="Sprite2D" parent="Potions"]
+self_modulate = Color(0.509804, 0.509804, 0.509804, 1)
+z_index = 1
+position = Vector2(535.75, 13)
+scale = Vector2(1.9625, 2)
+texture = ExtResource("6_ly6af")
+region_enabled = true
+region_rect = Rect2(145, 81, 40, 10)
+
+[node name="PotionUI2" type="Sprite2D" parent="Potions"]
+self_modulate = Color(0.509804, 0.509804, 0.509804, 1)
+z_index = 1
+position = Vector2(535.75, 32)
+scale = Vector2(1.9625, 2)
+texture = ExtResource("6_ly6af")
+flip_v = true
+region_enabled = true
+region_rect = Rect2(145, 81, 40, 3)
+
+[node name="PotionUI3" type="Sprite2D" parent="Potions"]
+self_modulate = Color(0.509804, 0.509804, 0.509804, 1)
+z_index = 1
+position = Vector2(535.75, 26)
+scale = Vector2(1.86905, 1.25)
+texture = ExtResource("6_ly6af")
+flip_v = true
+region_enabled = true
+region_rect = Rect2(145, 83, 42, 8)
+
+[node name="PotionUI4" type="Sprite2D" parent="Potions"]
+self_modulate = Color(0.0470588, 0.0392157, 0.0745098, 1)
+z_index = 1
+position = Vector2(536, 19)
+scale = Vector2(0.666667, 1.4)
+texture = ExtResource("6_ly6af")
+region_enabled = true
+region_rect = Rect2(3, 46, 3, 20)
+
+[node name="Potion" type="AnimatedSprite2D" parent="Potions"]
+z_index = 2
+position = Vector2(517, 19)
+scale = Vector2(1.625, 1.625)
+sprite_frames = SubResource("SpriteFrames_lhmhr")
+animation = &"Empty"
+autoplay = "PotionFull"
+
+[node name="Abilities" type="Node" parent="."]
+
+[node name="Boomerang" type="Sprite2D" parent="Abilities"]
+visible = false
+z_index = 1
+position = Vector2(556, 19)
+texture = ExtResource("11_nxmtu")
+region_enabled = true
+region_rect = Rect2(353, 357, 30, 22)
+
+[node name="ArchingDisc" type="Sprite2D" parent="Abilities"]
+visible = false
+z_index = 1
+position = Vector2(556, 19)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("12_1du37")
+region_enabled = true
+region_rect = Rect2(449, 64, 30, 32)
+
+[node name="Fireball" type="Sprite2D" parent="Abilities"]
+visible = false
+z_index = 1
+position = Vector2(549, 20)
+texture = ExtResource("13_m6rky")
+
+[node name="Coins" type="Node" parent="."]
+
+[node name="PotionUI11" type="Sprite2D" parent="Coins"]
+self_modulate = Color(0.509804, 0.509804, 0.509804, 1)
+z_index = 1
+position = Vector2(547.875, 51)
+scale = Vector2(1.35625, 2)
+texture = ExtResource("6_ly6af")
+flip_v = true
+region_enabled = true
+region_rect = Rect2(145, 81, 40, 10)
+
+[node name="PotionUI33" type="Sprite2D" parent="Coins"]
+self_modulate = Color(0.509804, 0.509804, 0.509804, 1)
+z_index = 1
+position = Vector2(547.875, 40)
+scale = Vector2(1.29167, 1.25)
+texture = ExtResource("6_ly6af")
+flip_v = true
+region_enabled = true
+region_rect = Rect2(145, 83, 42, 8)
+
+[node name="CoinsLabel" type="Label" parent="Coins"]
+z_index = 2
+offset_left = 557.0
+offset_top = 43.0
+offset_right = 597.0
+offset_bottom = 60.0
+theme_override_font_sizes/font_size = 8
+text = "%s"
+
+[node name="CoinsLabel2" type="Label" parent="Coins"]
+z_index = 2
+offset_left = 549.0
+offset_top = 44.0
+offset_right = 589.0
+offset_bottom = 60.0
+theme_override_font_sizes/font_size = 7
+text = "x "
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coins"]
+z_index = 1
+position = Vector2(536, 47)
+scale = Vector2(1.75, 1.75)
+sprite_frames = SubResource("SpriteFrames_70l4c")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="Boss1Healthbar" type="Node" parent="."]
+
+[node name="BossLabel" type="Label" parent="Boss1Healthbar"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.5
+offset_top = -141.5
+offset_right = 104.5
+offset_bottom = -122.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 10
+text = "Lord bartholemew cox iii"
+
+[node name="Boss1HealthEmpty" type="TextureRect" parent="Boss1Healthbar"]
+visible = false
+self_modulate = Color(0.392157, 0.392157, 0.392157, 1)
+z_index = -1
+offset_left = 141.0
+offset_top = 32.0
+offset_right = 432.0
+offset_bottom = 40.0
+texture = ExtResource("3_qs6ek")
+expand_mode = 1
+
+[node name="BarOutline1" type="Sprite2D" parent="Boss1Healthbar"]
+visible = false
+z_index = -3
+position = Vector2(185.9, 37)
+scale = Vector2(1.63158, 2)
+texture = ExtResource("2_nu3di")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(28, 100, 57, 7)
+
+[node name="BarOutline2" type="Sprite2D" parent="Boss1Healthbar"]
+visible = false
+z_index = -3
+position = Vector2(387.1, 37)
+scale = Vector2(1.63158, 2)
+texture = ExtResource("2_nu3di")
+region_enabled = true
+region_rect = Rect2(28, 100, 57, 7)
+
+[node name="BarOutline3" type="Sprite2D" parent="Boss1Healthbar"]
+visible = false
+z_index = -3
+position = Vector2(286.296, 37)
+scale = Vector2(1.93914, 2)
+texture = ExtResource("2_nu3di")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(28, 100, 56, 7)
+
+[node name="Boss1HealthFull" type="TextureRect" parent="Boss1Healthbar"]
+visible = false
+offset_left = 141.0
+offset_top = 32.0
+offset_right = 432.0
+offset_bottom = 40.0
+texture = ExtResource("3_qs6ek")
+expand_mode = 1
+
+[node name="PauseOverlay" type="ColorRect" parent="."]
+visible = false
+z_index = 15
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.635294)
+
+[node name="Label" type="Label" parent="PauseOverlay"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 64.0
+offset_right = 20.0
+offset_bottom = 80.0
+grow_horizontal = 2
+text = "paused"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseOverlay"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.0
+offset_top = -12.0
+offset_right = 52.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Resume" type="Button" parent="PauseOverlay/VBoxContainer"]
+layout_mode = 2
+text = "resume"
+
+[node name="Quit" type="Button" parent="PauseOverlay/VBoxContainer"]
+layout_mode = 2
+text = "quit"
+
+[connection signal="button_up" from="PauseOverlay/VBoxContainer/Resume" to="." method="_on_resume_button_up"]
+[connection signal="button_down" from="PauseOverlay/VBoxContainer/Quit" to="." method="_on_quit_button_down"]

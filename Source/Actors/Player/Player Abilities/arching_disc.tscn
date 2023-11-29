@@ -1,0 +1,107 @@
+[gd_scene load_steps=15 format=3 uid="uid://dcnw1esyly2jt"]
+
+[ext_resource type="Texture2D" uid="uid://cavj8ktesbtw0" path="res://Assets/Effects Assets/Effects Sheets/Pixel Explotion 32x32.png" id="1_6lhkt"]
+[ext_resource type="Script" path="res://Source/Actors/Player/Player Abilities/arching_disc.gd" id="1_y767m"]
+[ext_resource type="PackedScene" uid="uid://cyavki3bjyjgv" path="res://Source/Actors/Actor Resources/Hitboxes and Hurtboxes/hitbox.tscn" id="3_dsdvh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_63eso"]
+size = Vector2(0, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f48uo"]
+atlas = ExtResource("1_6lhkt")
+region = Rect2(224, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n6net"]
+atlas = ExtResource("1_6lhkt")
+region = Rect2(256, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ldjrh"]
+atlas = ExtResource("1_6lhkt")
+region = Rect2(288, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_es827"]
+atlas = ExtResource("1_6lhkt")
+region = Rect2(320, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_crump"]
+atlas = ExtResource("1_6lhkt")
+region = Rect2(352, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vlng0"]
+atlas = ExtResource("1_6lhkt")
+region = Rect2(384, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3qks"]
+atlas = ExtResource("1_6lhkt")
+region = Rect2(416, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_byv67"]
+atlas = ExtResource("1_6lhkt")
+region = Rect2(448, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k57wo"]
+animations = [{
+"frames": [{
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_f48uo")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_n6net")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_ldjrh")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_es827")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_crump")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_vlng0")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_q3qks")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_byv67")
+}],
+"loop": true,
+"name": &"ArchingDisc",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rlfgx"]
+radius = 14.0357
+
+[node name="ArchingDisc" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_y767m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_63eso")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 11
+scale = Vector2(0.9, 0.9)
+sprite_frames = SubResource("SpriteFrames_k57wo")
+animation = &"ArchingDisc"
+autoplay = "ArchingDisc"
+frame = 1
+frame_progress = 0.783658
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="Hitbox" parent="." instance=ExtResource("3_dsdvh")]
+collision_layer = 8
+collision_mask = 32
+damage = 3
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+shape = SubResource("CircleShape2D_rlfgx")
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+
+[editable path="Hitbox"]

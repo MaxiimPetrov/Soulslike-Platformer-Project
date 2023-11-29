@@ -1,0 +1,149 @@
+[gd_scene load_steps=19 format=3 uid="uid://boatba78rhk0s"]
+
+[ext_resource type="Script" path="res://Source/World/World Resources/Traps/flame_trap.gd" id="1_fpwfh"]
+[ext_resource type="Texture2D" uid="uid://n8400s7a4r22" path="res://Assets/World Creation Assets/Traps/TrapsSet2/Fire Trap/Fire Trap - Level 3.png" id="1_w71ew"]
+[ext_resource type="PackedScene" uid="uid://cyavki3bjyjgv" path="res://Source/Actor Resources/Hitboxes and Hurtboxes/hitbox.tscn" id="3_0vljv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xwfai"]
+atlas = ExtResource("1_w71ew")
+region = Rect2(256, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2nc52"]
+atlas = ExtResource("1_w71ew")
+region = Rect2(160, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wn4p8"]
+atlas = ExtResource("1_w71ew")
+region = Rect2(224, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dtdlp"]
+atlas = ExtResource("1_w71ew")
+region = Rect2(320, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l8vme"]
+atlas = ExtResource("1_w71ew")
+region = Rect2(352, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2fnsp"]
+atlas = ExtResource("1_w71ew")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lstfe"]
+atlas = ExtResource("1_w71ew")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1u467"]
+atlas = ExtResource("1_w71ew")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqc45"]
+atlas = ExtResource("1_w71ew")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ub44"]
+atlas = ExtResource("1_w71ew")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h3s8v"]
+atlas = ExtResource("1_w71ew")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xdnoa"]
+atlas = ExtResource("1_w71ew")
+region = Rect2(128, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_drlru"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xwfai")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2nc52")
+}],
+"loop": true,
+"name": &"Activated",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wn4p8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dtdlp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l8vme")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2fnsp")
+}],
+"loop": false,
+"name": &"Deactivate",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lstfe")
+}],
+"loop": false,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1u467")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mqc45")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ub44")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h3s8v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xdnoa")
+}],
+"loop": false,
+"name": &"Startup",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ckmq"]
+size = Vector2(0, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2hk76"]
+size = Vector2(18, 62)
+
+[node name="FlameTrap" type="StaticBody2D"]
+script = ExtResource("1_fpwfh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 2
+position = Vector2(0, -32)
+sprite_frames = SubResource("SpriteFrames_drlru")
+animation = &"Activated"
+autoplay = "Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_6ckmq")
+
+[node name="RechargeTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="ActivatedTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Hitbox" parent="." instance=ExtResource("3_0vljv")]
+collision_layer = 256
+collision_mask = 0
+damage = 50.0
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_2hk76")
+disabled = true
+
+[editable path="Hitbox"]

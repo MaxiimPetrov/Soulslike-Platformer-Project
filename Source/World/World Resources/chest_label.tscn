@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://bevxxb3ewmqgc"]
+
+[ext_resource type="Texture2D" uid="uid://cyffd4x41c70x" path="res://Assets/World Creation Assets/Checkpoint/shop.png" id="1_pf72l"]
+[ext_resource type="Texture2D" uid="uid://skmnt5fqygcm" path="res://Assets/UI Assets/H_M_S Bars/GUI.png" id="2_m17qa"]
+
+[node name="ChestLabel" type="Node2D"]
+
+[node name="Chain" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(0, 6)
+texture = ExtResource("1_pf72l")
+region_enabled = true
+region_rect = Rect2(8, 0, 28, 19)
+
+[node name="Sign" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(0, 26)
+texture = ExtResource("2_m17qa")
+region_enabled = true
+region_rect = Rect2(0, 96, 48, 32)
+
+[node name="Label" type="Sprite2D" parent="."]
+z_index = 1

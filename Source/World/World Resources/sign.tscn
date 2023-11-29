@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=3 uid="uid://ce0dqxw2c8yha"]
+
+[ext_resource type="Script" path="res://Source/World/World Resources/sign.gd" id="1_ltfep"]
+[ext_resource type="Texture2D" uid="uid://x00fehfnbwc6" path="res://Assets/World Creation Assets/Checkpoint/TutorialSign.png" id="1_u6wq8"]
+[ext_resource type="Texture2D" uid="uid://skmnt5fqygcm" path="res://Assets/UI Assets/H_M_S Bars/GUI.png" id="3_kg3dv"]
+[ext_resource type="PackedScene" uid="uid://behanqrisr7aq" path="res://Source/Actors/Actor Resources/Actor Detection/actor_detection_zone.tscn" id="4_svfyi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ha87j"]
+size = Vector2(34, 51)
+
+[node name="Sign" type="Node2D"]
+script = ExtResource("1_ltfep")
+
+[node name="SignSprite" type="Sprite2D" parent="."]
+position = Vector2(0, -24)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_u6wq8")
+flip_h = true
+region_rect = Rect2(52, 104, 8, 8)
+
+[node name="TextBoxSprite" type="Sprite2D" parent="."]
+z_index = 11
+position = Vector2(0, -115)
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("3_kg3dv")
+region_enabled = true
+region_rect = Rect2(49, 97, 30, 30)
+
+[node name="TextLabel" type="Label" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+z_index = 11
+offset_left = -44.0
+offset_top = -159.0
+offset_right = 44.0
+offset_bottom = -70.0
+theme_override_font_sizes/font_size = 7
+horizontal_alignment = 1
+
+[node name="InteractLabel" type="Label" parent="."]
+z_index = 11
+offset_left = -19.0
+offset_top = -61.0
+offset_right = 21.0
+offset_bottom = -45.0
+theme_override_font_sizes/font_size = 5
+text = "e"
+horizontal_alignment = 1
+
+[node name="CloseLabel" type="Label" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+z_index = 11
+offset_left = -61.0
+offset_top = -82.0
+offset_right = 61.0
+offset_bottom = -56.0
+theme_override_font_sizes/font_size = 7
+text = "| e | close"
+horizontal_alignment = 1
+
+[node name="ActorDetectionZone" parent="." instance=ExtResource("4_svfyi")]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="ActorDetectionZone" index="0"]
+position = Vector2(0, -25.5)
+shape = SubResource("RectangleShape2D_ha87j")
+
+[editable path="ActorDetectionZone"]

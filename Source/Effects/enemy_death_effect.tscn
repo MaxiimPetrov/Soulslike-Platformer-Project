@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://ca2rrfxikdsn6"]
+
+[ext_resource type="Texture2D" uid="uid://dx23p56g5denf" path="res://Assets/Effects Assets/Enemy Effects Assets/Hit_Effect-Sheet.png" id="1_gnsbr"]
+[ext_resource type="Script" path="res://Source/Effects/enemy_death_effect.gd" id="1_jcc4j"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ixtoa"]
+atlas = ExtResource("1_gnsbr")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ty6lh"]
+atlas = ExtResource("1_gnsbr")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_owwie"]
+atlas = ExtResource("1_gnsbr")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_snmp5"]
+atlas = ExtResource("1_gnsbr")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxspj"]
+atlas = ExtResource("1_gnsbr")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1rfah"]
+atlas = ExtResource("1_gnsbr")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pmg84"]
+animations = [{
+"frames": [{
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_ixtoa")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_ty6lh")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_owwie")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_snmp5")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_dxspj")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_1rfah")
+}],
+"loop": false,
+"name": &"Effect",
+"speed": 5.0
+}]
+
+[node name="EnemyDeathEffect" type="Node2D"]
+script = ExtResource("1_jcc4j")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 6
+scale = Vector2(0.375, 0.375)
+sprite_frames = SubResource("SpriteFrames_pmg84")
+animation = &"Effect"
+autoplay = "Effect"
+frame_progress = 1.0
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

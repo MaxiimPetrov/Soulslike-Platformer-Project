@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://bhsnsouvivg0h"]
+
+[ext_resource type="Texture2D" uid="uid://wd3ptd7mxcov" path="res://Assets/Effects Assets/Effects Sheets/Blue Effect Bullet Impact Explosion 32x32.png" id="1_8kv8a"]
+[ext_resource type="Script" path="res://Source/Effects/pogo_effect.gd" id="1_bnq8x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pxjb3"]
+atlas = ExtResource("1_8kv8a")
+region = Rect2(512, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7k65b"]
+atlas = ExtResource("1_8kv8a")
+region = Rect2(544, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bb823"]
+atlas = ExtResource("1_8kv8a")
+region = Rect2(576, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8cewx"]
+atlas = ExtResource("1_8kv8a")
+region = Rect2(608, 160, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aoki8"]
+animations = [{
+"frames": [{
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_pxjb3")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_7k65b")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_bb823")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_8cewx")
+}],
+"loop": false,
+"name": &"Effect",
+"speed": 5.0
+}]
+
+[node name="PogoEffect" type="Node2D"]
+script = ExtResource("1_bnq8x")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+self_modulate = Color(100, 100, 100, 1)
+z_index = 11
+scale = Vector2(1, 0.53125)
+sprite_frames = SubResource("SpriteFrames_aoki8")
+animation = &"Effect"
+autoplay = "Effect"
+frame = 3
+frame_progress = 1.0
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

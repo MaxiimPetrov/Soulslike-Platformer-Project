@@ -1,0 +1,87 @@
+[gd_scene load_steps=11 format=3 uid="uid://dd0d3iyfdhuuq"]
+
+[ext_resource type="Texture2D" uid="uid://b6ml8wuc8dd8e" path="res://Assets/Enemy Assets/Mimic/Chest.png" id="1_5lpdj"]
+[ext_resource type="Script" path="res://Source/World/World Resources/chest.gd" id="1_sy6ap"]
+[ext_resource type="PackedScene" uid="uid://behanqrisr7aq" path="res://Source/Actors/Actor Resources/Actor Detection/actor_detection_zone.tscn" id="3_t6wr7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibhh5"]
+atlas = ExtResource("1_5lpdj")
+region = Rect2(0, 0, 108, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3gsu"]
+atlas = ExtResource("1_5lpdj")
+region = Rect2(0, 0, 108, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gl6yy"]
+atlas = ExtResource("1_5lpdj")
+region = Rect2(108, 0, 108, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jjei"]
+atlas = ExtResource("1_5lpdj")
+region = Rect2(216, 0, 108, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m65q0"]
+atlas = ExtResource("1_5lpdj")
+region = Rect2(324, 0, 108, 108)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k7afs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ibhh5")
+}],
+"loop": false,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_o3gsu")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_gl6yy")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_4jjei")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_m65q0")
+}],
+"loop": false,
+"name": &"Open",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iyedc"]
+size = Vector2(44, 25)
+
+[node name="Chest" type="Node2D"]
+script = ExtResource("1_sy6ap")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 2
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_k7afs")
+animation = &"Open"
+autoplay = "Idle"
+offset = Vector2(-1, 2.08165e-12)
+
+[node name="ActorDetectionZone" parent="." instance=ExtResource("3_t6wr7")]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="ActorDetectionZone" index="0"]
+position = Vector2(0, -12.5)
+shape = SubResource("RectangleShape2D_iyedc")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -58.0
+offset_top = -36.0
+offset_right = 60.0
+offset_bottom = -17.0
+theme_override_font_sizes/font_size = 5
+text = "E"
+horizontal_alignment = 1
+
+[editable path="ActorDetectionZone"]

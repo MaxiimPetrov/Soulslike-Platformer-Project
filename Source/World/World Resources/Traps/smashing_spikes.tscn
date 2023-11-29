@@ -1,0 +1,336 @@
+[gd_scene load_steps=27 format=3 uid="uid://bij0r1oyocl2m"]
+
+[ext_resource type="Script" path="res://Source/World/World Resources/Traps/smashing_spikes.gd" id="1_phma0"]
+[ext_resource type="Texture2D" uid="uid://ctrs3tbpkorvy" path="res://Assets/World Creation Assets/Traps/TrapsSet2/Ceiling Trap/Ceiling Trap - Level 1.png" id="1_scsq0"]
+[ext_resource type="PackedScene" uid="uid://cyavki3bjyjgv" path="res://Source/Actor Resources/Hitboxes and Hurtboxes/hitbox.tscn" id="3_dnig6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_re7cu"]
+size = Vector2(40, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lg30c"]
+size = Vector2(0, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqpm4"]
+atlas = ExtResource("1_scsq0")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4k7e0"]
+atlas = ExtResource("1_scsq0")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1840p"]
+atlas = ExtResource("1_scsq0")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_phwfo"]
+atlas = ExtResource("1_scsq0")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k14ad"]
+atlas = ExtResource("1_scsq0")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5sol6"]
+atlas = ExtResource("1_scsq0")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sg3b8"]
+atlas = ExtResource("1_scsq0")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_avkaa"]
+atlas = ExtResource("1_scsq0")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c0yhn"]
+atlas = ExtResource("1_scsq0")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v8muf"]
+atlas = ExtResource("1_scsq0")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w56u3"]
+atlas = ExtResource("1_scsq0")
+region = Rect2(640, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2vlc"]
+atlas = ExtResource("1_scsq0")
+region = Rect2(704, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_roaah"]
+atlas = ExtResource("1_scsq0")
+region = Rect2(768, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tiiuv"]
+atlas = ExtResource("1_scsq0")
+region = Rect2(832, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_60hyd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gqpm4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4k7e0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1840p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_phwfo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k14ad")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5sol6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sg3b8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_avkaa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c0yhn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v8muf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w56u3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f2vlc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_roaah")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tiiuv")
+}],
+"loop": false,
+"name": &"Spikes",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_n7njj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Spikes"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HitboxLarge/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HitboxSmall/CollisionShape2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -57.5)]
+}
+
+[sub_resource type="Animation" id="Animation_iei2q"]
+resource_name = "SmashAbove"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Spikes"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HitboxLarge/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HitboxSmall/CollisionShape2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(0, -72), Vector2(0, -8), Vector2(0, -20.5), Vector2(0, -34.5), Vector2(0, -44.5), Vector2(0, -53.5), Vector2(0, -62), Vector2(0, -69.5), Vector2(0, -72)]
+}
+
+[sub_resource type="Animation" id="Animation_w14x2"]
+resource_name = "SmashBelow"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Spikes"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HitboxLarge/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HitboxSmall/CollisionShape2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(0, -8), Vector2(0, -72), Vector2(0, -59), Vector2(0, -45.5), Vector2(0, -35.5), Vector2(0, -26.5), Vector2(0, -17.5), Vector2(0, -10.5), Vector2(0, -8.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bhex5"]
+_data = {
+"RESET": SubResource("Animation_n7njj"),
+"SmashAbove": SubResource("Animation_iei2q"),
+"SmashBelow": SubResource("Animation_w14x2")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7cces"]
+size = Vector2(40, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1me0h"]
+size = Vector2(40, 16)
+
+[node name="SmashingSpikes" type="StaticBody2D"]
+script = ExtResource("1_phma0")
+
+[node name="FromBelowCollision" type="StaticBody2D" parent="."]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FromBelowCollision"]
+position = Vector2(0, -17)
+shape = SubResource("RectangleShape2D_re7cu")
+disabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_lg30c")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 2
+position = Vector2(0, -40)
+scale = Vector2(1.25, 1.25)
+sprite_frames = SubResource("SpriteFrames_60hyd")
+animation = &"Spikes"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bhex5")
+}
+
+[node name="RechargeTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="HitboxLarge" parent="." instance=ExtResource("3_dnig6")]
+collision_layer = 256
+collision_mask = 0
+damage = 50.0
+
+[node name="CollisionShape2D" parent="HitboxLarge" index="0"]
+position = Vector2(0, -40)
+shape = SubResource("RectangleShape2D_7cces")
+disabled = true
+
+[node name="HitboxSmall" parent="." instance=ExtResource("3_dnig6")]
+collision_layer = 256
+collision_mask = 0
+damage = 50.0
+
+[node name="CollisionShape2D" parent="HitboxSmall" index="0"]
+position = Vector2(0, -57.5)
+shape = SubResource("RectangleShape2D_1me0h")
+
+[editable path="HitboxLarge"]
+[editable path="HitboxSmall"]

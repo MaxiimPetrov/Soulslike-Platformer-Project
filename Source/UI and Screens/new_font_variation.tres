@@ -1,0 +1,6 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://5nodjyag4kku"]
+
+[ext_resource type="FontFile" uid="uid://b3pqlnu8cl340" path="res://Assets/UI Assets/Font/megaman_2.ttf" id="1_dfqer"]
+
+[resource]
+base_font = ExtResource("1_dfqer")

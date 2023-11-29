@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://borak1epnrxis"]
+
+[ext_resource type="Script" path="res://Source/Autoload/GameData.gd" id="1_dmdgk"]
+
+[node name="GameData" type="Node"]
+script = ExtResource("1_dmdgk")

@@ -1,0 +1,110 @@
+[gd_scene load_steps=11 format=3 uid="uid://gf6we7naqxfk"]
+
+[ext_resource type="Script" path="res://Source/World/World Resources/checkpoint.gd" id="1_oa4uj"]
+[ext_resource type="Texture2D" uid="uid://x50cpg4w4cg6" path="res://Assets/World Creation Assets/Checkpoint/flag animation.png" id="1_urgpk"]
+[ext_resource type="PackedScene" uid="uid://behanqrisr7aq" path="res://Source/Actor Resources/Actor Detection/actor_detection_zone.tscn" id="2_af8h3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0j8rn"]
+atlas = ExtResource("1_urgpk")
+region = Rect2(0, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5041j"]
+atlas = ExtResource("1_urgpk")
+region = Rect2(60, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sa3sc"]
+atlas = ExtResource("1_urgpk")
+region = Rect2(120, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d1g6f"]
+atlas = ExtResource("1_urgpk")
+region = Rect2(180, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhctn"]
+atlas = ExtResource("1_urgpk")
+region = Rect2(240, 0, 60, 60)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2org6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0j8rn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5041j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sa3sc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d1g6f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jhctn")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4iien"]
+size = Vector2(50, 4)
+
+[node name="Checkpoint" type="Node2D"]
+script = ExtResource("1_oa4uj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
+position = Vector2(21.5, -28)
+sprite_frames = SubResource("SpriteFrames_2org6")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.442903
+
+[node name="ActorDetectionZone" parent="." instance=ExtResource("2_af8h3")]
+collision_layer = 128
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="ActorDetectionZone" index="0"]
+position = Vector2(12, -2)
+shape = SubResource("RectangleShape2D_4iien")
+
+[node name="InteractLabel" type="Label" parent="."]
+visible = false
+offset_left = -58.0
+offset_top = -69.0
+offset_right = 60.0
+offset_bottom = -50.0
+theme_override_font_sizes/font_size = 5
+text = "E"
+horizontal_alignment = 1
+
+[node name="SavedLabel" type="Label" parent="."]
+visible = false
+offset_left = -49.0
+offset_top = -69.0
+offset_right = 69.0
+offset_bottom = -50.0
+theme_override_font_sizes/font_size = 5
+text = "Checkpoint saved"
+horizontal_alignment = 1
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="BufferToSavedTimer" type="Timer" parent="Timers"]
+one_shot = true
+
+[node name="SavedTimer" type="Timer" parent="Timers"]
+one_shot = true
+
+[node name="BufferToIdleTimer" type="Timer" parent="Timers"]
+one_shot = true
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(9, -25.5)
+scale = Vector2(2.3, 2.55)
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+
+[editable path="ActorDetectionZone"]

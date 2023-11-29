@@ -1,0 +1,145 @@
+[gd_scene load_steps=33 format=3 uid="uid://dkgtt56fnub24"]
+
+[ext_resource type="Script" path="res://Source/Effects/heal_effect.gd" id="1_nusq6"]
+[ext_resource type="Texture2D" uid="uid://dxaidjg18b0h8" path="res://Assets/Effects Assets/Blood Effect Assets/Heal Effect Assets/FX001.png" id="1_t8ru7"]
+[ext_resource type="Texture2D" uid="uid://c702kc1xoqy5e" path="res://Assets/Effects Assets/Blood Effect Assets/Heal Effect Assets/FX002.png" id="2_i6ods"]
+[ext_resource type="Texture2D" uid="uid://18wml40sp4vn" path="res://Assets/Effects Assets/Blood Effect Assets/Heal Effect Assets/FX003.png" id="3_gpmq1"]
+[ext_resource type="Texture2D" uid="uid://bq7p22t2hmf2o" path="res://Assets/Effects Assets/Blood Effect Assets/Heal Effect Assets/FX004.png" id="4_fdry3"]
+[ext_resource type="Texture2D" uid="uid://cdc40dwls2dwn" path="res://Assets/Effects Assets/Blood Effect Assets/Heal Effect Assets/FX005.png" id="5_hboc1"]
+[ext_resource type="Texture2D" uid="uid://lwwowd4nui47" path="res://Assets/Effects Assets/Blood Effect Assets/Heal Effect Assets/FX006.png" id="6_mutj7"]
+[ext_resource type="Texture2D" uid="uid://djevuhq23ubmd" path="res://Assets/Effects Assets/Blood Effect Assets/Heal Effect Assets/FX007.png" id="7_x8im3"]
+[ext_resource type="Texture2D" uid="uid://btly1h8eb5vri" path="res://Assets/Effects Assets/Blood Effect Assets/Heal Effect Assets/FX008.png" id="8_qubcr"]
+[ext_resource type="Texture2D" uid="uid://dsoqo4obik8al" path="res://Assets/Effects Assets/Blood Effect Assets/Heal Effect Assets/FX009.png" id="9_r077n"]
+[ext_resource type="Texture2D" uid="uid://2wv66bdn888o" path="res://Assets/Effects Assets/Blood Effect Assets/Heal Effect Assets/FX010.png" id="10_71upb"]
+[ext_resource type="Texture2D" uid="uid://dk1udvr5xh8q" path="res://Assets/Effects Assets/Blood Effect Assets/Heal Effect Assets/FX011.png" id="11_h2ghs"]
+[ext_resource type="Texture2D" uid="uid://qxkmuw8fsbe1" path="res://Assets/Effects Assets/Blood Effect Assets/Heal Effect Assets/FX012.png" id="12_pwl0u"]
+[ext_resource type="Texture2D" uid="uid://376seiwoyy0p" path="res://Assets/Effects Assets/Blood Effect Assets/Heal Effect Assets/FX013.png" id="13_k8dlw"]
+[ext_resource type="Texture2D" uid="uid://canyhti8noyip" path="res://Assets/Effects Assets/Blood Effect Assets/Heal Effect Assets/FX014.png" id="14_6wfgt"]
+[ext_resource type="Texture2D" uid="uid://c45xmjgmxcvwf" path="res://Assets/Effects Assets/Blood Effect Assets/Heal Effect Assets/FX015.png" id="15_516l4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cu0tk"]
+atlas = ExtResource("1_t8ru7")
+region = Rect2(0, 0, 64, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5hqs3"]
+atlas = ExtResource("2_i6ods")
+region = Rect2(0, 0, 64, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_honby"]
+atlas = ExtResource("3_gpmq1")
+region = Rect2(0, 0, 64, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o4xqf"]
+atlas = ExtResource("4_fdry3")
+region = Rect2(0, 0, 64, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7oaa3"]
+atlas = ExtResource("5_hboc1")
+region = Rect2(0, 0, 64, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yl6cx"]
+atlas = ExtResource("6_mutj7")
+region = Rect2(0, 0, 64, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_swgir"]
+atlas = ExtResource("7_x8im3")
+region = Rect2(0, 0, 64, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_plyju"]
+atlas = ExtResource("8_qubcr")
+region = Rect2(0, 0, 64, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hx2js"]
+atlas = ExtResource("9_r077n")
+region = Rect2(0, 0, 64, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_686aw"]
+atlas = ExtResource("10_71upb")
+region = Rect2(0, 0, 64, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_di8fr"]
+atlas = ExtResource("11_h2ghs")
+region = Rect2(0, 0, 64, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lhtfi"]
+atlas = ExtResource("12_pwl0u")
+region = Rect2(0, 0, 64, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_he0w3"]
+atlas = ExtResource("13_k8dlw")
+region = Rect2(0, 0, 64, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sosv6"]
+atlas = ExtResource("14_6wfgt")
+region = Rect2(0, 0, 64, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hltol"]
+atlas = ExtResource("15_516l4")
+region = Rect2(0, 0, 64, 49)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uk3nc"]
+animations = [{
+"frames": [{
+"duration": 0.25,
+"texture": SubResource("AtlasTexture_cu0tk")
+}, {
+"duration": 0.25,
+"texture": SubResource("AtlasTexture_5hqs3")
+}, {
+"duration": 0.25,
+"texture": SubResource("AtlasTexture_honby")
+}, {
+"duration": 0.25,
+"texture": SubResource("AtlasTexture_o4xqf")
+}, {
+"duration": 0.25,
+"texture": SubResource("AtlasTexture_7oaa3")
+}, {
+"duration": 0.25,
+"texture": SubResource("AtlasTexture_yl6cx")
+}, {
+"duration": 0.25,
+"texture": SubResource("AtlasTexture_swgir")
+}, {
+"duration": 0.25,
+"texture": SubResource("AtlasTexture_plyju")
+}, {
+"duration": 0.25,
+"texture": SubResource("AtlasTexture_hx2js")
+}, {
+"duration": 0.25,
+"texture": SubResource("AtlasTexture_686aw")
+}, {
+"duration": 0.25,
+"texture": SubResource("AtlasTexture_di8fr")
+}, {
+"duration": 0.25,
+"texture": SubResource("AtlasTexture_lhtfi")
+}, {
+"duration": 0.25,
+"texture": SubResource("AtlasTexture_he0w3")
+}, {
+"duration": 0.25,
+"texture": SubResource("AtlasTexture_sosv6")
+}, {
+"duration": 0.25,
+"texture": SubResource("AtlasTexture_hltol")
+}],
+"loop": false,
+"name": &"Effect",
+"speed": 5.0
+}]
+
+[node name="HealEffect" type="Node2D"]
+script = ExtResource("1_nusq6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 11
+scale = Vector2(0.78125, 1)
+sprite_frames = SubResource("SpriteFrames_uk3nc")
+animation = &"Effect"
+autoplay = "Effect"
+frame = 14
+frame_progress = 1.0
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

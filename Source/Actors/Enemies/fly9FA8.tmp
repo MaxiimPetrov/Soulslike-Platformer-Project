@@ -1,0 +1,111 @@
+[gd_scene load_steps=15 format=3 uid="uid://cfmads6fmgj2p"]
+
+[ext_resource type="Script" path="res://Source/Actors/Enemies/flying_eye_enemy.gd" id="1_4ywng"]
+[ext_resource type="Texture2D" uid="uid://3cew62woeca5" path="res://Assets/Enemy Assets/Flying eye/Flight.png" id="1_nk67a"]
+[ext_resource type="PackedScene" uid="uid://behanqrisr7aq" path="res://Source/Actor Resources/Actor Detection/actor_detection_zone.tscn" id="3_af65e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mc6v8"]
+size = Vector2(0, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3o30"]
+atlas = ExtResource("1_nk67a")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svcfv"]
+atlas = ExtResource("1_nk67a")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6sbwd"]
+atlas = ExtResource("1_nk67a")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8fpk"]
+atlas = ExtResource("1_nk67a")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gqik"]
+atlas = ExtResource("1_nk67a")
+region = Rect2(600, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ow0la"]
+atlas = ExtResource("1_nk67a")
+region = Rect2(750, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bkftk"]
+atlas = ExtResource("1_nk67a")
+region = Rect2(900, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bj60e"]
+atlas = ExtResource("1_nk67a")
+region = Rect2(1050, 0, 150, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8aq2f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d3o30")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svcfv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6sbwd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s8fpk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2gqik")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ow0la")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bkftk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bj60e")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1mqqb"]
+size = Vector2(245, 128)
+
+[node name="FlyingEyeEnemy" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_4ywng")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_mc6v8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 5
+position = Vector2(-5, 0)
+sprite_frames = SubResource("SpriteFrames_8aq2f")
+animation = &"Idle"
+frame = 1
+frame_progress = 0.0167443
+
+[node name="ActorDetectionZone" parent="." instance=ExtResource("3_af65e")]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="ActorDetectionZone" index="0"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_1mqqb")
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="PlayerDetectedTimer" type="Timer" parent="Timers"]
+wait_time = 0.5
+one_shot = true
+
+[node name="ChaseWindupTimer" type="Timer" parent="Timers"]
+wait_time = 0.5
+one_shot = true
+
+[editable path="ActorDetectionZone"]

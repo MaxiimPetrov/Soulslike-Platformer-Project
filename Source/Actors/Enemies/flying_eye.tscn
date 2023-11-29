@@ -1,0 +1,357 @@
+[gd_scene load_steps=30 format=3 uid="uid://cfmads6fmgj2p"]
+
+[ext_resource type="Script" path="res://Source/Actors/Enemies/flying_eye.gd" id="1_7jdly"]
+[ext_resource type="Texture2D" uid="uid://d4j7bcnj11skv" path="res://Assets/Enemy Assets/Flying eye/Death.png" id="2_wvbn8"]
+[ext_resource type="Texture2D" uid="uid://3cew62woeca5" path="res://Assets/Enemy Assets/Flying eye/Flight.png" id="3_5ccy0"]
+[ext_resource type="PackedScene" uid="uid://behanqrisr7aq" path="res://Source/Actors/Actor Resources/Actor Detection/actor_detection_zone.tscn" id="4_e846l"]
+[ext_resource type="PackedScene" uid="uid://cyavki3bjyjgv" path="res://Source/Actors/Actor Resources/Hitboxes and Hurtboxes/hitbox.tscn" id="5_5ltlf"]
+[ext_resource type="PackedScene" uid="uid://c4rfywn5u7hkk" path="res://Source/Actors/Actor Resources/Hitboxes and Hurtboxes/hurtbox.tscn" id="6_41iim"]
+[ext_resource type="Texture2D" uid="uid://c41i7ngssy6v8" path="res://Assets/UI Assets/H_M_S Bars/HealthBarCROPPED.png" id="7_8fdey"]
+[ext_resource type="Texture2D" uid="uid://d0x5t5rguvfq" path="res://Assets/UI Assets/H_M_S Bars/HealthBar_cropped.png" id="8_e8pvo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mc6v8"]
+size = Vector2(28, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_walwf"]
+atlas = ExtResource("2_wvbn8")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ihxd0"]
+atlas = ExtResource("2_wvbn8")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tds2m"]
+atlas = ExtResource("2_wvbn8")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xowu1"]
+atlas = ExtResource("2_wvbn8")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3o30"]
+atlas = ExtResource("3_5ccy0")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svcfv"]
+atlas = ExtResource("3_5ccy0")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6sbwd"]
+atlas = ExtResource("3_5ccy0")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8fpk"]
+atlas = ExtResource("3_5ccy0")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gqik"]
+atlas = ExtResource("3_5ccy0")
+region = Rect2(600, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ow0la"]
+atlas = ExtResource("3_5ccy0")
+region = Rect2(750, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bkftk"]
+atlas = ExtResource("3_5ccy0")
+region = Rect2(900, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bj60e"]
+atlas = ExtResource("3_5ccy0")
+region = Rect2(1050, 0, 150, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8aq2f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_walwf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ihxd0")
+}],
+"loop": false,
+"name": &"Death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tds2m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xowu1")
+}],
+"loop": false,
+"name": &"DeathFalling",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d3o30")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svcfv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6sbwd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s8fpk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2gqik")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ow0la")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bkftk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bj60e")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 12.0
+}]
+
+[sub_resource type="Animation" id="Animation_4u2m5"]
+resource_name = "Death (Ground)"
+length = 2.0
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Death"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.18),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.4, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"death_queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_p0txc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Death"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8bvk5"]
+_data = {
+"Death (Ground)": SubResource("Animation_4u2m5"),
+"RESET": SubResource("Animation_p0txc")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1mqqb"]
+size = Vector2(265, 144)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_psqm5"]
+size = Vector2(17, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yo5ix"]
+size = Vector2(32, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_844fj"]
+size = Vector2(32, 23)
+
+[node name="FlyingEye" type="CharacterBody2D"]
+collision_layer = 0
+script = ExtResource("1_7jdly")
+
+[node name="WorldCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_mc6v8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 5
+position = Vector2(-5, 0)
+sprite_frames = SubResource("SpriteFrames_8aq2f")
+animation = &"Death"
+frame = 1
+flip_h = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8bvk5")
+}
+
+[node name="ActorDetectionZone" parent="." instance=ExtResource("4_e846l")]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="ActorDetectionZone" index="0"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_1mqqb")
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="PlayerDetectedTimer" type="Timer" parent="Timers"]
+wait_time = 0.5
+one_shot = true
+
+[node name="ChaseWindupTimer" type="Timer" parent="Timers"]
+wait_time = 0.75
+one_shot = true
+
+[node name="WaitTimer" type="Timer" parent="Timers"]
+one_shot = true
+
+[node name="HurtboxEnteredTimer" type="Timer" parent="Timers"]
+wait_time = 0.1
+one_shot = true
+
+[node name="HealthbarTimer" type="Timer" parent="Timers"]
+wait_time = 5.0
+one_shot = true
+
+[node name="Hitbox" parent="." instance=ExtResource("5_5ltlf")]
+collision_layer = 64
+collision_mask = 0
+damage = 20.0
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_psqm5")
+
+[node name="Hitbox2" parent="." instance=ExtResource("5_5ltlf")]
+collision_layer = 64
+collision_mask = 0
+damage = 20.0
+
+[node name="CollisionShape2D" parent="Hitbox2" index="0"]
+position = Vector2(0, -5.5)
+shape = SubResource("RectangleShape2D_yo5ix")
+
+[node name="Hurtbox" parent="." instance=ExtResource("6_41iim")]
+collision_layer = 32
+collision_mask = 8
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_844fj")
+
+[node name="Health" type="Node2D" parent="."]
+
+[node name="HealthBarEmpty" type="Sprite2D" parent="Health"]
+visible = false
+self_modulate = Color(0.392157, 0.392157, 0.392157, 1)
+z_index = 1
+position = Vector2(0, -20)
+scale = Vector2(0.75, 1)
+texture = ExtResource("7_8fdey")
+
+[node name="HealthbarFull" type="TextureRect" parent="Health"]
+visible = false
+z_index = 1
+offset_left = -21.0
+offset_top = -22.0
+offset_right = 21.0
+offset_bottom = -18.0
+texture = ExtResource("7_8fdey")
+expand_mode = 1
+
+[node name="HealthBarEmpty1" type="Sprite2D" parent="Health"]
+visible = false
+z_index = 1
+position = Vector2(1.2, -20)
+scale = Vector2(0.719298, 0.666667)
+texture = ExtResource("8_e8pvo")
+region_enabled = true
+region_rect = Rect2(28, 100, 57, 6)
+
+[node name="HealthBarEmpty2" type="Sprite2D" parent="Health"]
+visible = false
+z_index = 1
+position = Vector2(-1.2, -20)
+scale = Vector2(0.719298, 0.666667)
+texture = ExtResource("8_e8pvo")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(28, 100, 57, 6)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+scale = Vector2(2.9, 2.1)
+
+[node name="VisibleOnScreenNotifier2DLARGE" type="VisibleOnScreenNotifier2D" parent="."]
+scale = Vector2(26, 26)
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2DLARGE" to="." method="_on_visible_on_screen_notifier_2dlarge_screen_exited"]
+
+[editable path="ActorDetectionZone"]
+[editable path="Hitbox"]
+[editable path="Hitbox2"]
+[editable path="Hurtbox"]

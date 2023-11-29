@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://cga4fx0it0sg5"]
+
+[ext_resource type="Texture2D" uid="uid://cuwh25hktrupn" path="res://Assets/World Creation Assets/Traps/Spike_B.png" id="1_rdong"]
+[ext_resource type="PackedScene" uid="uid://cyavki3bjyjgv" path="res://Source/Actor Resources/Hitboxes and Hurtboxes/hitbox.tscn" id="2_c2d8i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ihu0g"]
+size = Vector2(32, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uupyq"]
+size = Vector2(34, 10)
+
+[node name="Spikes" type="StaticBody2D"]
+collision_mask = 0
+
+[node name="AnimatedSprite2D" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(0, -7.5)
+texture = ExtResource("1_rdong")
+region_enabled = true
+region_rect = Rect2(128, 7, 32, 15)
+
+[node name="Hitbox" parent="." instance=ExtResource("2_c2d8i")]
+collision_layer = 256
+collision_mask = 0
+damage = 50.0
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2(0, -7)
+shape = SubResource("RectangleShape2D_ihu0g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_uupyq")
+
+[editable path="Hitbox"]

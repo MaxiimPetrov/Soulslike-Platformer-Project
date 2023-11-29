@@ -1,0 +1,138 @@
+[gd_scene load_steps=25 format=3 uid="uid://be8fjsqstnbxv"]
+
+[ext_resource type="Script" path="res://Source/World/Levels/shop.gd" id="1_aiugb"]
+[ext_resource type="PackedScene" uid="uid://drwll2xfgfgfy" path="res://Source/UI and Screens/user_interface.tscn" id="1_ifgv6"]
+[ext_resource type="Texture2D" uid="uid://bf2w72cvcm0hv" path="res://Assets/World Creation Assets/Parallax/Free Pixel Art Forest/PNG/Background layers/Layer_0005_5.png" id="4_3rydf"]
+[ext_resource type="Texture2D" uid="uid://bs30etni1agwn" path="res://Assets/World Creation Assets/Parallax/Free Pixel Art Forest/PNG/Background layers/Layer_0000_9.png" id="4_auj6v"]
+[ext_resource type="Texture2D" uid="uid://btrn5uq34vjp6" path="res://Assets/World Creation Assets/Parallax/Free Pixel Art Forest/PNG/Background layers/Layer_0001_8.png" id="5_n8psf"]
+[ext_resource type="Texture2D" uid="uid://c6pk76xg6mygj" path="res://Assets/World Creation Assets/Parallax/Free Pixel Art Forest/PNG/Background layers/Layer_0003_6.png" id="5_rfnnu"]
+[ext_resource type="PackedScene" uid="uid://bhlx05itttax0" path="res://Source/Actors/Player/player.tscn" id="6_6p2du"]
+[ext_resource type="Texture2D" uid="uid://c7tcue2i63mxy" path="res://Assets/World Creation Assets/Parallax/Free Pixel Art Forest/PNG/Background layers/Layer_0004_Lights.png" id="6_j3l5l"]
+[ext_resource type="Texture2D" uid="uid://bvwv1qkj5jtq7" path="res://Assets/World Creation Assets/Parallax/Free Pixel Art Forest/PNG/Background layers/Layer_0002_7.png" id="7_ffgvj"]
+[ext_resource type="PackedScene" uid="uid://cm1a0bf5atq4m" path="res://Source/Actors/Enemies/shopkeeper.tscn" id="8_10llv"]
+[ext_resource type="Texture2D" uid="uid://bgo2e83vj6gc4" path="res://Assets/World Creation Assets/Parallax/Free Pixel Art Forest/PNG/Background layers/Layer_0006_4.png" id="8_vjk6f"]
+[ext_resource type="Texture2D" uid="uid://bs8ochp6wkbfa" path="res://Assets/World Creation Assets/Parallax/Free Pixel Art Forest/PNG/Background layers/Layer_0007_Lights.png" id="9_8vlht"]
+[ext_resource type="Texture2D" uid="uid://4oun544jprum" path="res://Assets/World Creation Assets/Parallax/Free Pixel Art Forest/PNG/Background layers/Layer_0008_3.png" id="10_hpvva"]
+[ext_resource type="Texture2D" uid="uid://by2t8hecry6oo" path="res://Assets/World Creation Assets/Parallax/Free Pixel Art Forest/PNG/Background layers/Layer_0009_2.png" id="11_qrtuo"]
+[ext_resource type="Texture2D" uid="uid://qhi4fanyyq8a" path="res://Assets/World Creation Assets/Parallax/Free Pixel Art Forest/PNG/Background layers/Layer_0010_1.png" id="12_porvq"]
+[ext_resource type="Texture2D" uid="uid://es6smlnbeiio" path="res://Assets/World Creation Assets/Parallax/Free Pixel Art Forest/PNG/Background layers/Layer_0011_0.png" id="13_4d8e1"]
+[ext_resource type="PackedScene" uid="uid://cuxe6vxuhd16p" path="res://Source/World/World Resources/tile_map.tscn" id="16_f24wr"]
+[ext_resource type="Texture2D" uid="uid://cyffd4x41c70x" path="res://Assets/World Creation Assets/Checkpoint/shop.png" id="18_5hsdp"]
+[ext_resource type="PackedScene" uid="uid://xkr4wljdcumt" path="res://Source/World/World Resources/Collectibles/health_upgrade.tscn" id="19_go27d"]
+[ext_resource type="PackedScene" uid="uid://b186ha0m2hf51" path="res://Source/World/World Resources/Collectibles/stamina_upgrade.tscn" id="20_ltcyy"]
+[ext_resource type="PackedScene" uid="uid://cym5u2t2ay32p" path="res://Source/World/World Resources/Collectibles/mana_upgrade.tscn" id="21_lfvi8"]
+[ext_resource type="PackedScene" uid="uid://gqhwkuln86tm" path="res://Source/World/World Resources/Collectibles/attack_upgrade.tscn" id="22_wrxay"]
+[ext_resource type="PackedScene" uid="uid://cgiajxuu0nx6c" path="res://Source/World/World Resources/level_transition.tscn" id="23_yr880"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qfrxu"]
+size = Vector2(576, 26)
+
+[node name="Shop" type="Node2D"]
+script = ExtResource("1_aiugb")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
+offset_right = 576.0
+offset_bottom = 304.0
+
+[node name="UserInterface" parent="CanvasLayer" instance=ExtResource("1_ifgv6")]
+
+[node name="BG" type="Node2D" parent="."]
+
+[node name="Layer00055" type="Sprite2D" parent="BG"]
+position = Vector2(288.144, 109.9)
+scale = Vector2(0.621, 0.492)
+texture = ExtResource("4_3rydf")
+
+[node name="Layer00110" type="Sprite2D" parent="BG"]
+position = Vector2(288.144, 109.9)
+scale = Vector2(0.621, 0.492)
+texture = ExtResource("13_4d8e1")
+
+[node name="Layer00101" type="Sprite2D" parent="BG"]
+position = Vector2(288.144, 109.9)
+scale = Vector2(0.621, 0.492)
+texture = ExtResource("12_porvq")
+
+[node name="Layer00092" type="Sprite2D" parent="BG"]
+position = Vector2(288.144, 109.9)
+scale = Vector2(0.621, 0.492)
+texture = ExtResource("11_qrtuo")
+
+[node name="Layer00083" type="Sprite2D" parent="BG"]
+position = Vector2(288.144, 109.9)
+scale = Vector2(0.621, 0.492)
+texture = ExtResource("10_hpvva")
+
+[node name="Layer0007Lights" type="Sprite2D" parent="BG"]
+position = Vector2(288.144, 109.9)
+scale = Vector2(0.621, 0.492)
+texture = ExtResource("9_8vlht")
+
+[node name="Layer00064" type="Sprite2D" parent="BG"]
+position = Vector2(288.144, 109.9)
+scale = Vector2(0.621, 0.492)
+texture = ExtResource("8_vjk6f")
+
+[node name="Layer0004Lights" type="Sprite2D" parent="BG"]
+position = Vector2(288.144, 109.9)
+scale = Vector2(0.621, 0.492)
+texture = ExtResource("6_j3l5l")
+
+[node name="Layer00036" type="Sprite2D" parent="BG"]
+position = Vector2(288.144, 109.9)
+scale = Vector2(0.621, 0.492)
+texture = ExtResource("5_rfnnu")
+
+[node name="Layer00027" type="Sprite2D" parent="BG"]
+position = Vector2(288.144, 109.9)
+scale = Vector2(0.621, 0.6)
+texture = ExtResource("7_ffgvj")
+
+[node name="Layer00018" type="Sprite2D" parent="BG"]
+position = Vector2(288.144, 109.9)
+scale = Vector2(0.621, 0.492)
+texture = ExtResource("5_n8psf")
+
+[node name="Layer00009" type="Sprite2D" parent="BG"]
+position = Vector2(288.144, 109.9)
+scale = Vector2(0.62069, 0.492119)
+texture = ExtResource("4_auj6v")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(288, 285)
+shape = SubResource("RectangleShape2D_qfrxu")
+
+[node name="Player" parent="." instance=ExtResource("6_6p2du")]
+position = Vector2(40, 272)
+
+[node name="Shopkeeper" parent="." instance=ExtResource("8_10llv")]
+position = Vector2(527, 160)
+
+[node name="TileMap" parent="." instance=ExtResource("16_f24wr")]
+layer_0/tile_data = PackedInt32Array(655395, 655361, 16, 655394, 655361, 16, 655393, 655361, 16, 655392, 655361, 16, 655391, 589825, 16, 1048584, 655360, 10, 1048589, 655360, 10, 1048594, 655360, 10, 1048599, 655360, 10, 1048585, 655360, 10, 983049, 655360, 10, 983048, 655360, 10, 1048590, 655360, 10, 983054, 655360, 10, 983053, 655360, 10, 1048595, 655360, 10, 983059, 655360, 10, 983058, 655360, 10, 1048600, 655360, 10, 983064, 655360, 10, 983063, 655360, 10)
+
+[node name="Shop" type="Sprite2D" parent="."]
+position = Vector2(473, 180)
+texture = ExtResource("18_5hsdp")
+
+[node name="HealthUpgrade" parent="." instance=ExtResource("19_go27d")]
+position = Vector2(144, 240)
+
+[node name="StaminaUpgrade" parent="." instance=ExtResource("20_ltcyy")]
+position = Vector2(224, 240)
+
+[node name="ManaUpgrade" parent="." instance=ExtResource("21_lfvi8")]
+position = Vector2(304, 240)
+
+[node name="AttackUpgrade" parent="." instance=ExtResource("22_wrxay")]
+position = Vector2(384, 240)
+
+[node name="LevelTransition" parent="." instance=ExtResource("23_yr880")]
+position = Vector2(536, 272)
+level_transition = "res://Source/UI and Screens/Screens/tbd_screen.tscn"

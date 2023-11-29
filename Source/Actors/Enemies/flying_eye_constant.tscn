@@ -1,0 +1,108 @@
+[gd_scene load_steps=15 format=3 uid="uid://bg1vsoa25fp1y"]
+
+[ext_resource type="Script" path="res://Source/Actors/Enemies/flying_eye_constant.gd" id="1_bqh4w"]
+[ext_resource type="Texture2D" uid="uid://3cew62woeca5" path="res://Assets/Enemy Assets/Flying eye/Flight.png" id="1_wqkmd"]
+[ext_resource type="PackedScene" uid="uid://cyavki3bjyjgv" path="res://Source/Actor Resources/Hitboxes and Hurtboxes/hitbox.tscn" id="2_bdq66"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q3pg7"]
+size = Vector2(0, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vd4to"]
+atlas = ExtResource("1_wqkmd")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5xhm"]
+atlas = ExtResource("1_wqkmd")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fhtc"]
+atlas = ExtResource("1_wqkmd")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n7ead"]
+atlas = ExtResource("1_wqkmd")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ctb0g"]
+atlas = ExtResource("1_wqkmd")
+region = Rect2(600, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7kdy"]
+atlas = ExtResource("1_wqkmd")
+region = Rect2(750, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ewgjk"]
+atlas = ExtResource("1_wqkmd")
+region = Rect2(900, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dvwfc"]
+atlas = ExtResource("1_wqkmd")
+region = Rect2(1050, 0, 150, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3h4vk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vd4to")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s5xhm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6fhtc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n7ead")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ctb0g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7kdy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ewgjk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dvwfc")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qjkda"]
+size = Vector2(24, 22)
+
+[node name="FlyingEyeCONSTANT" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_bqh4w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_q3pg7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 5
+position = Vector2(5, -2)
+sprite_frames = SubResource("SpriteFrames_3h4vk")
+animation = &"Idle"
+autoplay = "Idle"
+frame = 5
+frame_progress = 0.237966
+flip_h = true
+
+[node name="Hitbox" parent="." instance=ExtResource("2_bdq66")]
+collision_layer = 64
+collision_mask = 0
+damage = 20.0
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_qjkda")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+
+[editable path="Hitbox"]

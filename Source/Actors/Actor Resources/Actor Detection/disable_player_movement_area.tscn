@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://digwsb0h4452r"]
+
+[ext_resource type="Script" path="res://Source/Actors/Actor Resources/Actor Detection/disable_player_movement_area.gd" id="1_fxk1a"]
+
+[node name="DisablePlayerMovementArea" type="Area2D"]
+collision_layer = 512
+collision_mask = 512
+script = ExtResource("1_fxk1a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

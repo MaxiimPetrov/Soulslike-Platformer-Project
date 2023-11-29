@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3q35andbgske"]
+
+[ext_resource type="Script" path="res://Source/Effects/boss_zoom_effect.gd" id="1_18w0j"]
+[ext_resource type="Texture2D" uid="uid://dhfu0deb34gx8" path="res://Assets/Enemy Assets/Skeleton/Idle.png" id="1_kgts8"]
+
+[node name="BossZoomEffectLeft" type="Node2D"]
+script = ExtResource("1_18w0j")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(1, 0.686275, 0.686275, 1)
+z_index = 4
+position = Vector2(-4, -38)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_kgts8")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(60, 50, 45, 51)

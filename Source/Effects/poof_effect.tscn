@@ -1,0 +1,65 @@
+[gd_scene load_steps=13 format=3 uid="uid://bkymyg28k2xx6"]
+
+[ext_resource type="Script" path="res://Source/Effects/PoofEffect.gd" id="1_exy6t"]
+[ext_resource type="Texture2D" uid="uid://bnqfxmnvoht5f" path="res://Assets/Effects Assets/Dust Assets/PoofEffect/FX001_01.png" id="2_71mwp"]
+[ext_resource type="Texture2D" uid="uid://duhd3d0hhua23" path="res://Assets/Effects Assets/Dust Assets/PoofEffect/FX001_02.png" id="3_s8yu0"]
+[ext_resource type="Texture2D" uid="uid://bxjfvso4be2f7" path="res://Assets/Effects Assets/Dust Assets/PoofEffect/FX001_03.png" id="4_x3wwu"]
+[ext_resource type="Texture2D" uid="uid://bcwggxxdvruok" path="res://Assets/Effects Assets/Dust Assets/PoofEffect/FX001_04.png" id="5_jewjw"]
+[ext_resource type="Texture2D" uid="uid://b5g8mq7rm2jvm" path="res://Assets/Effects Assets/Dust Assets/PoofEffect/FX001_05.png" id="6_jdv28"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pq640"]
+atlas = ExtResource("2_71mwp")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o63qi"]
+atlas = ExtResource("3_s8yu0")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7cgw"]
+atlas = ExtResource("4_x3wwu")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ft4qt"]
+atlas = ExtResource("5_jewjw")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lby12"]
+atlas = ExtResource("6_jdv28")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ev5cw"]
+animations = [{
+"frames": [{
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_pq640")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_o63qi")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_a7cgw")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_ft4qt")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_lby12")
+}],
+"loop": false,
+"name": &"Effect",
+"speed": 5.0
+}]
+
+[node name="PoofEffect" type="Node2D"]
+script = ExtResource("1_exy6t")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 6
+scale = Vector2(0.4375, 0.4375)
+sprite_frames = SubResource("SpriteFrames_ev5cw")
+animation = &"Effect"
+autoplay = "Effect"
+frame = 4
+frame_progress = 1.0
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

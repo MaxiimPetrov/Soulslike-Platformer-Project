@@ -1,0 +1,140 @@
+[gd_scene load_steps=15 format=3 uid="uid://b186ha0m2hf51"]
+
+[ext_resource type="Script" path="res://Source/World/World Resources/Collectibles/stamina_upgrade.gd" id="1_8gyiu"]
+[ext_resource type="Texture2D" uid="uid://ji8t3lq423p4" path="res://Assets/UI Assets/Potions/Green potions/poç¦o verde.png" id="2_14gki"]
+[ext_resource type="PackedScene" uid="uid://behanqrisr7aq" path="res://Source/Actors/Actor Resources/Actor Detection/actor_detection_zone.tscn" id="3_qxb2s"]
+[ext_resource type="Texture2D" uid="uid://skmnt5fqygcm" path="res://Assets/UI Assets/H_M_S Bars/GUI.png" id="4_1n2em"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yw7hg"]
+atlas = ExtResource("2_14gki")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_emo4a"]
+atlas = ExtResource("2_14gki")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7uq4"]
+atlas = ExtResource("2_14gki")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ntpyw"]
+atlas = ExtResource("2_14gki")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ig3w5"]
+atlas = ExtResource("2_14gki")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qgxct"]
+atlas = ExtResource("2_14gki")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sujmu"]
+atlas = ExtResource("2_14gki")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bu3iy"]
+atlas = ExtResource("2_14gki")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qt3ny"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yw7hg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_emo4a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b7uq4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ntpyw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ig3w5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qgxct")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sujmu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bu3iy")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wyc1u"]
+size = Vector2(24, 25)
+
+[node name="StaminaUpgrade" type="Node2D"]
+script = ExtResource("1_8gyiu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -12)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_qt3ny")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.664365
+
+[node name="InteractLabel" type="Label" parent="."]
+offset_left = -19.0
+offset_top = -35.0
+offset_right = 21.0
+offset_bottom = -19.0
+theme_override_font_sizes/font_size = 5
+text = "e"
+horizontal_alignment = 1
+
+[node name="ActorDetectionZone" parent="." instance=ExtResource("3_qxb2s")]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="ActorDetectionZone" index="0"]
+position = Vector2(0, -12.5)
+shape = SubResource("RectangleShape2D_wyc1u")
+
+[node name="TextBoxSprite" type="Sprite2D" parent="."]
+z_index = 11
+position = Vector2(0, -94)
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("4_1n2em")
+region_enabled = true
+region_rect = Rect2(49, 97, 30, 30)
+
+[node name="TextLabel" type="Label" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+z_index = 11
+offset_left = -44.0
+offset_top = -138.0
+offset_right = 44.0
+offset_bottom = -49.0
+theme_override_font_sizes/font_size = 6
+text = "-stamina-
+-upgrade-
+
+increase
+stamina by 
+25 points
+
+price: 5 coins"
+horizontal_alignment = 1
+
+[node name="CloseLabel" type="Label" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+z_index = 11
+offset_left = -52.0
+offset_top = -61.0
+offset_right = 70.0
+offset_bottom = -35.0
+theme_override_font_sizes/font_size = 5
+text = "| q | buy        | e | close         "
+horizontal_alignment = 1
+
+[editable path="ActorDetectionZone"]

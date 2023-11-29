@@ -1,0 +1,109 @@
+[gd_scene load_steps=16 format=3 uid="uid://3qegtgt8xr02"]
+
+[ext_resource type="Script" path="res://Source/Effects/Checkpoint Effect.gd" id="1_2efe1"]
+[ext_resource type="Texture2D" uid="uid://bg4d6fr5wyukt" path="res://Assets/Effects Assets/Effects Sheets/Red Effect Bullet Impact Explosion 32x32.png" id="2_ev0wf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvtba"]
+atlas = ExtResource("2_ev0wf")
+region = Rect2(192, 320, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4vnbq"]
+atlas = ExtResource("2_ev0wf")
+region = Rect2(224, 320, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jtkvo"]
+atlas = ExtResource("2_ev0wf")
+region = Rect2(256, 320, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3030g"]
+atlas = ExtResource("2_ev0wf")
+region = Rect2(288, 320, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xt7gu"]
+atlas = ExtResource("2_ev0wf")
+region = Rect2(192, 320, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ahir3"]
+atlas = ExtResource("2_ev0wf")
+region = Rect2(224, 320, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfvdn"]
+atlas = ExtResource("2_ev0wf")
+region = Rect2(256, 320, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_67mbp"]
+atlas = ExtResource("2_ev0wf")
+region = Rect2(288, 320, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f73fa"]
+atlas = ExtResource("2_ev0wf")
+region = Rect2(192, 320, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3qf6q"]
+atlas = ExtResource("2_ev0wf")
+region = Rect2(224, 320, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lykxs"]
+atlas = ExtResource("2_ev0wf")
+region = Rect2(256, 320, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gsgr"]
+atlas = ExtResource("2_ev0wf")
+region = Rect2(288, 320, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jv264"]
+animations = [{
+"frames": [{
+"duration": 0.9,
+"texture": SubResource("AtlasTexture_mvtba")
+}, {
+"duration": 0.9,
+"texture": SubResource("AtlasTexture_4vnbq")
+}, {
+"duration": 0.9,
+"texture": SubResource("AtlasTexture_jtkvo")
+}, {
+"duration": 0.9,
+"texture": SubResource("AtlasTexture_3030g")
+}, {
+"duration": 0.9,
+"texture": SubResource("AtlasTexture_xt7gu")
+}, {
+"duration": 0.9,
+"texture": SubResource("AtlasTexture_ahir3")
+}, {
+"duration": 0.9,
+"texture": SubResource("AtlasTexture_xfvdn")
+}, {
+"duration": 0.9,
+"texture": SubResource("AtlasTexture_67mbp")
+}, {
+"duration": 0.9,
+"texture": SubResource("AtlasTexture_f73fa")
+}, {
+"duration": 0.9,
+"texture": SubResource("AtlasTexture_3qf6q")
+}, {
+"duration": 0.9,
+"texture": SubResource("AtlasTexture_lykxs")
+}, {
+"duration": 0.9,
+"texture": SubResource("AtlasTexture_2gsgr")
+}],
+"loop": false,
+"name": &"Effect",
+"speed": 5.0
+}]
+
+[node name="Checkpoint Effect" type="Node2D"]
+script = ExtResource("1_2efe1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 2
+scale = Vector2(0.8125, 0.8125)
+sprite_frames = SubResource("SpriteFrames_jv264")
+animation = &"Effect"
+autoplay = "Effect"
+frame_progress = 1.0
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

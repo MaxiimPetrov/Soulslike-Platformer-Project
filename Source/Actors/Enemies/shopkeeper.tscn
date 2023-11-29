@@ -1,0 +1,91 @@
+[gd_scene load_steps=13 format=3 uid="uid://cm1a0bf5atq4m"]
+
+[ext_resource type="Texture2D" uid="uid://b6sq4akhmmfep" path="res://Assets/Enemy Assets/Shopkeeper/Gipsy spritesheet.png" id="1_pjbwn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_at2ln"]
+atlas = ExtResource("1_pjbwn")
+region = Rect2(0, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sfmou"]
+atlas = ExtResource("1_pjbwn")
+region = Rect2(80, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_82rev"]
+atlas = ExtResource("1_pjbwn")
+region = Rect2(160, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1224o"]
+atlas = ExtResource("1_pjbwn")
+region = Rect2(240, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rrrnw"]
+atlas = ExtResource("1_pjbwn")
+region = Rect2(320, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3sprx"]
+atlas = ExtResource("1_pjbwn")
+region = Rect2(400, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wkt6g"]
+atlas = ExtResource("1_pjbwn")
+region = Rect2(480, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rnuoy"]
+atlas = ExtResource("1_pjbwn")
+region = Rect2(560, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c1gd3"]
+atlas = ExtResource("1_pjbwn")
+region = Rect2(640, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sbdrq"]
+atlas = ExtResource("1_pjbwn")
+region = Rect2(720, 160, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ger1w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_at2ln")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sfmou")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_82rev")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1224o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rrrnw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3sprx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wkt6g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rnuoy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c1gd3")
+}, {
+"duration": 6.0,
+"texture": SubResource("AtlasTexture_sbdrq")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="Shopkeeper" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -40)
+sprite_frames = SubResource("SpriteFrames_ger1w")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.0354862
+flip_h = true

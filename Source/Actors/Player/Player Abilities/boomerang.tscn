@@ -1,0 +1,116 @@
+[gd_scene load_steps=14 format=3 uid="uid://c7xt6pnc3yhsx"]
+
+[ext_resource type="Texture2D" uid="uid://wd3ptd7mxcov" path="res://Assets/Effects Assets/Effects Sheets/Blue Effect Bullet Impact Explosion 32x32.png" id="1_5eosc"]
+[ext_resource type="Script" path="res://Source/Actors/Player/Player Abilities/boomerang.gd" id="1_da3vw"]
+[ext_resource type="PackedScene" uid="uid://cyavki3bjyjgv" path="res://Source/Actors/Actor Resources/Hitboxes and Hurtboxes/hitbox.tscn" id="3_jk84o"]
+[ext_resource type="PackedScene" uid="uid://behanqrisr7aq" path="res://Source/Actors/Actor Resources/Actor Detection/actor_detection_zone.tscn" id="4_yh5ff"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0dv64"]
+atlas = ExtResource("1_5eosc")
+region = Rect2(352, 352, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yik3u"]
+atlas = ExtResource("1_5eosc")
+region = Rect2(384, 352, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sfful"]
+atlas = ExtResource("1_5eosc")
+region = Rect2(416, 352, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_62hee"]
+atlas = ExtResource("1_5eosc")
+region = Rect2(448, 352, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wps6f"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_0dv64")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_yik3u")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_sfful")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_62hee")
+}],
+"loop": true,
+"name": &"Boomerang",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w8w7q"]
+size = Vector2(0, 0)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xohpe"]
+radius = 9.3
+height = 24.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u86di"]
+radius = 9.0
+height = 19.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8quxn"]
+radius = 9.0
+height = 24.0
+
+[node name="Boomerang" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_da3vw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 11
+sprite_frames = SubResource("SpriteFrames_wps6f")
+animation = &"Boomerang"
+autoplay = "Boomerang"
+frame = 2
+frame_progress = 0.0929947
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_w8w7q")
+
+[node name="FlipVelocityTimer" type="Timer" parent="."]
+wait_time = 0.8
+one_shot = true
+
+[node name="ReactivateHitboxTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="Hitbox" parent="." instance=ExtResource("3_jk84o")]
+collision_layer = 8
+collision_mask = 2
+damage = 3.0
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_xohpe")
+
+[node name="ActorDetectionZone" parent="." instance=ExtResource("4_yh5ff")]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="ActorDetectionZone" index="0"]
+shape = SubResource("CapsuleShape2D_u86di")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-9.53674e-07, 0)
+scale = Vector2(1.2, 1)
+
+[node name="SoundDetection" parent="." instance=ExtResource("4_yh5ff")]
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape2D" parent="SoundDetection" index="0"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_8quxn")
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="area_entered" from="SoundDetection" to="." method="_on_sound_detection_area_entered"]
+
+[editable path="Hitbox"]
+[editable path="ActorDetectionZone"]
+[editable path="SoundDetection"]

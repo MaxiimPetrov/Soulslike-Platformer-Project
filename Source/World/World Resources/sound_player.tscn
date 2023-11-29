@@ -1,0 +1,92 @@
+[gd_scene load_steps=18 format=3 uid="uid://bpdmpix6suuaw"]
+
+[ext_resource type="Script" path="res://Source/World/World Resources/sound_player.gd" id="1_wyn18"]
+[ext_resource type="AudioStream" uid="uid://bmcyl851g62ql" path="res://Assets/Sounds/Blip_Select.wav" id="2_rrgqr"]
+[ext_resource type="AudioStream" uid="uid://cnbo4piydcknw" path="res://Assets/Sounds/Hit_Hurt.wav" id="3_ljege"]
+[ext_resource type="AudioStream" uid="uid://bswtl7bgna2dw" path="res://Assets/Sounds/Hit_Hurt35.wav" id="4_7ujws"]
+[ext_resource type="AudioStream" uid="uid://msrpynr5xoht" path="res://Assets/Sounds/Laser_Shoot13.wav" id="5_spkdg"]
+[ext_resource type="AudioStream" uid="uid://c4deftr4a0aod" path="res://Assets/Sounds/Pickup_Coin7.wav" id="6_unkq3"]
+[ext_resource type="AudioStream" uid="uid://by4o7fwv3528v" path="res://Assets/Sounds/Powerup7.wav" id="7_7my8y"]
+[ext_resource type="AudioStream" uid="uid://m2nncbrs3vii" path="res://Assets/Sounds/Hit_Hurt32.wav" id="8_avqli"]
+[ext_resource type="AudioStream" uid="uid://d1vhmmtgrxkbj" path="res://Assets/Sounds/Explosion4.wav" id="9_up0an"]
+[ext_resource type="AudioStream" uid="uid://nwj1b67028l6" path="res://Assets/Sounds/Randomize8.wav" id="10_sqtay"]
+[ext_resource type="AudioStream" uid="uid://ddf1sp7uqvt8t" path="res://Assets/Sounds/xDeviruchi - 8-bit Fantasy  & Adventure Music (2021)/xDeviruchi - Exploring The Unknown.wav" id="11_tah8m"]
+[ext_resource type="AudioStream" uid="uid://bmoim88o4m4d1" path="res://Assets/Sounds/xDeviruchi - 8-bit Fantasy  & Adventure Music (2021)/xDeviruchi - Prepare for Battle! .wav" id="12_pdvtu"]
+[ext_resource type="AudioStream" uid="uid://dldwqg8t2i5b0" path="res://Assets/Sounds/Randomize20.wav" id="13_1vhw6"]
+[ext_resource type="AudioStream" uid="uid://bh3yj57wyska3" path="res://Assets/Sounds/Randomize32.wav" id="14_7atfm"]
+[ext_resource type="AudioStream" uid="uid://rx3gwi66i508" path="res://Assets/Sounds/xDeviruchi - 8-bit Fantasy  & Adventure Music (2021)/xDeviruchi - Title Theme .wav" id="15_gjk1m"]
+[ext_resource type="AudioStream" uid="uid://dj5xibv126irt" path="res://Assets/Sounds/xDeviruchi - 8-bit Fantasy  & Adventure Music (2021)/xDeviruchi - And The Journey Begins .wav" id="16_puxkg"]
+[ext_resource type="AudioStream" uid="uid://b2gulnc7svf6b" path="res://Assets/Sounds/xDeviruchi - 8-bit Fantasy  & Adventure Music (2021)/xDeviruchi - Take some rest and eat some food!.wav" id="17_frc8o"]
+
+[node name="SoundPlayer" type="Node"]
+script = ExtResource("1_wyn18")
+
+[node name="ButtonPress" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_rrgqr")
+bus = &"Sound Effects"
+
+[node name="PlayerHurt" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ljege")
+bus = &"Sound Effects"
+
+[node name="PlayerDead" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_7ujws")
+bus = &"Sound Effects"
+
+[node name="Ability" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_spkdg")
+bus = &"Sound Effects"
+
+[node name="Coin" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_unkq3")
+bus = &"Sound Effects"
+
+[node name="AbilityPickup" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_7my8y")
+bus = &"Sound Effects"
+
+[node name="PlayerAttack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_avqli")
+bus = &"Sound Effects"
+
+[node name="EnemyDeath" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_up0an")
+volume_db = 5.143
+bus = &"Sound Effects"
+
+[node name="Potion" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_sqtay")
+volume_db = -13.641
+bus = &"Sound Effects"
+
+[node name="BossDeath" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_1vhw6")
+bus = &"Sound Effects"
+
+[node name="PlayerDodge" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_7atfm")
+bus = &"Sound Effects"
+
+[node name="Stage1Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_tah8m")
+volume_db = -5.652
+bus = &"Music"
+
+[node name="Stage1BossMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_pdvtu")
+bus = &"Music"
+
+[node name="MainMenuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_gjk1m")
+volume_db = -8.0
+bus = &"Music"
+
+[node name="TutorialMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_puxkg")
+volume_db = -8.0
+bus = &"Music"
+
+[node name="ShopMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_frc8o")
+volume_db = -6.286
+bus = &"Music"

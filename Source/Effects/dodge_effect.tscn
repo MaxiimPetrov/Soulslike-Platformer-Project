@@ -1,0 +1,65 @@
+[gd_scene load_steps=8 format=3 uid="uid://b8xfcqueu14p6"]
+
+[ext_resource type="Script" path="res://Source/Effects/dodge_effect.gd" id="1_2vwou"]
+[ext_resource type="Texture2D" uid="uid://d31rfcak2fbg2" path="res://Assets/Player Assets/Roll.png" id="1_6sunv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1wuqm"]
+atlas = ExtResource("1_6sunv")
+region = Rect2(0, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8k5tp"]
+atlas = ExtResource("1_6sunv")
+region = Rect2(128, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjqne"]
+atlas = ExtResource("1_6sunv")
+region = Rect2(0, 64, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tnqlv"]
+atlas = ExtResource("1_6sunv")
+region = Rect2(128, 64, 128, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_776vs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1wuqm")
+}],
+"loop": false,
+"name": &"Frame1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8k5tp")
+}],
+"loop": false,
+"name": &"Frame2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pjqne")
+}],
+"loop": false,
+"name": &"Frame3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tnqlv")
+}],
+"loop": false,
+"name": &"Frame4",
+"speed": 5.0
+}]
+
+[node name="DodgeEffect" type="Node2D"]
+script = ExtResource("1_2vwou")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+self_modulate = Color(0.788235, 0.788235, 1, 1)
+z_index = 9
+position = Vector2(0, -32)
+sprite_frames = SubResource("SpriteFrames_776vs")
+animation = &"Frame1"
